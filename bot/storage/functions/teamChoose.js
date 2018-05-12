@@ -24,5 +24,11 @@ module.exports = ( message, response) => {
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
  userController.updateStep(viberId,'waiting')
   actions.sendMessages(msg,0,response)*/
+
+ let viberId =response.userProfile.id
+  console.log(viberId)
+  console.log(message)
+
+
   console.log('CHOOSE TEAM FUNCTION')
 }

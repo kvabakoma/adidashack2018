@@ -32,5 +32,22 @@ module.exports = {
          }
        }).catch(error => reject(error))
      })
+   },
+   updateTeam(viberId,team){
+     return new Promise((resolve, reject) => {
+       User.findOne({'viberId': viberId}).then(fetchedUser => {
+         if (fetchedUser) {
+           console.log(fetchedUser)
+           fetchedUser.team=team
+           fetchedUser.save()
+             .then(updatedUser=>{
+               resolve(updatedUser)
+             })
+
+         } else {
+           resolve(false)
+         }
+       }).catch(error => reject(error))
+     })
    }
 }
