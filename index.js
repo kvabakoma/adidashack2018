@@ -43,10 +43,11 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
       channel.bindQueue(q.queue, exchange, key);
 
       channel.consume(q.queue, function(msg) {
+        console.log(msg)
         var event = JSON.parse(msg.content.toString())
         console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
       });
-
+      console.log('Q-> ',q)
     });
 
   });
