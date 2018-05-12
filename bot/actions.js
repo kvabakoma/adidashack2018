@@ -12,6 +12,7 @@ module.exports = {
         console.log(userProfile);
         userController.getUserByViberId(userProfile.id)
           .then(result=> {
+            console.log('ACTION->',result)
             if (!result) {
               userController.createBotUser({
                 username: userProfile.name,
@@ -98,7 +99,7 @@ function botSendMsg(bot, messages, viberId, index) {
   if (messages[index]) {
     bot.sendMessage({id: viberId}, messages[index])
       .then(res => {
-       console.log(res)
+       console.log('MSG->',res)
         index++;
 
         if (index > messages.length - 1) {
