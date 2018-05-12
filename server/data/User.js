@@ -4,23 +4,26 @@ const encryption = require('../utilities/encryption')
 const REQUIRED_VALIDATION_MESSAGE = '{PATH} is required'
 
 let userSchema = new mongoose.Schema({
-  username: { type: String, required: REQUIRED_VALIDATION_MESSAGE, unique: true },
-
-  salt: String,
+  viberID:String,
+  username: String,
+  avatar: String,
   hashedPass: String,
-  roles: [String]
+  ts:Number,
+  invitations:Number
 })
 
+/*
 userSchema.method({
   authenticate: function (password) {
     return encryption.generateHashedPassword(this.salt, password) === this.hashedPass
   }
 })
+*/
 
 let User = mongoose.model('User', userSchema)
 
 module.exports = User
-module.exports.seedAdminUser = () => {
+/*module.exports.seedAdminUser = () => {
   User.find({}).then(users => {
     if (users.length > 0) return
 
@@ -34,4 +37,4 @@ module.exports.seedAdminUser = () => {
       roles: ['Admin']
     })
   })
-}
+}*/

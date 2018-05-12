@@ -1,8 +1,6 @@
 const mongoose = require('mongoose')
 const User = require('../data/User')
-const Message = require('../data/Message')
-const BotConfiguration = require('../data/BotConfiguration')
-const CustomFunction = require('../data/CustomFunction')
+
 
 mongoose.Promise = global.Promise
 
@@ -18,9 +16,7 @@ module.exports = (settings) => {
 
     console.log('MongoDB ready!')
 
-  User.seedAdminUser()
-  BotConfiguration.seedBotConfiguration()
-    CustomFunction.seedFunc()
+
   })
 
   db.on('error', err => console.log(`Database error: ${err}`))
