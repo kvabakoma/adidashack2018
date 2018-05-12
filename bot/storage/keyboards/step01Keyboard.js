@@ -5,10 +5,10 @@ module.exports = {
     {
       "Columns": 3,
       "Rows": 2,
-      "ActionType": "share-phone",
+      "ActionType": "reply",
       "ActionBody": "none",
       "BgColor": "#1dff00",
-      "Text": 'Да! ',
+      "Text": 'Bulgaria',
       "TextHAlign": "center",
       "TextVAlign": "middle",
       "Silent":"true"
@@ -19,7 +19,7 @@ module.exports = {
       "ActionType": "reply",
       "ActionBody": "step03",
       "BgColor": "#ff0026",
-      "Text": 'Не сега.',
+      "Text": 'Spain',
       "TextHAlign": "center",
       "TextVAlign": "middle",
       "Silent":"true"

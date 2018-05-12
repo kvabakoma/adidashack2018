@@ -4,7 +4,7 @@ module.exports = {
     {
     "Columns": 3,
     "Rows": 2,
-    "Text": "<font color=\"#494E67\">Bulgaria</font><br><br>",
+    "Text": "Bulgaria",
     "TextSize": "medium",
     "TextHAlign": "center",
     "TextVAlign": "bottom",
@@ -16,13 +16,13 @@ module.exports = {
     {
     "Columns": 3,
     "Rows": 2,
-    "Text": "<font color=\"#494E67\">Spain</font><br><br>",
+    "Text": "Spain",
     "TextSize": "medium",
     "TextHAlign": "center",
     "TextVAlign": "bottom",
     "ActionType": "reply",
     "ActionBody": "Spain-team",
-    "BgColor": "# f6f7f9",
+    "BgColor": "#f6f7f9",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/300px-Flag_of_Spain.svg.png"
   }
   ]
