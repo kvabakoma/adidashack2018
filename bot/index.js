@@ -41,6 +41,7 @@ module.exports = (bot,io) => {
             }).catch(error => console.log(error))*/
         }
         if (storageMessage.type === 'function') {
+          console.log('BOT FUNC',io)
           actions.executeFunction(storageMessage,strippedText,response,io,bot)
         }
       }
