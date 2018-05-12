@@ -21,7 +21,7 @@ module.exports = {
               })
             }
             let msgs =[]
-            msgs.push(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`))
+            msgs.push(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`,keyboards.teams))
             msgs.push(new TextMessage(`Pick team that you support`,keyboards.teams))
             botSendMsg(bot,msgs,userProfile.id,0)
 
