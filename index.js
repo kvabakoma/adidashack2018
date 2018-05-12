@@ -39,13 +39,14 @@ http.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl
 console.log(`Server listening on port ${settings.port}...`)
 io.on('connection', (socket) => {
   console.log("Connected to Socket!!" + socket.id);
-
+  socket.emit('join',{hui:'oioiuo'})
 //QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
-  botFunc(bot,io)
+
 });
-events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
+botFunc(bot,io)
+/*events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
   conn.createChannel(function(err, channel) {
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
       channel.bindQueue(q.queue, exchange, "#");
@@ -57,4 +58,4 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
 
   });
 
-});
+});*/
