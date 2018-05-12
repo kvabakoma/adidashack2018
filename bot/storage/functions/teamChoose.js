@@ -26,7 +26,8 @@ module.exports = (message, response, io) => {
    actions.sendMessages(msg,0,response)*/
   7
   let viberId = response.userProfile.id
-  userController.updateTeam(viberId)
+  let team = message.split('-')[0]
+  userController.updateTeam(viberId,team)
     .then(updatedUser=> {
       console.log(updatedUser)
       io.sockets.emit('join', {

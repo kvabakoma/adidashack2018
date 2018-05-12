@@ -8,7 +8,8 @@ module.exports = {
       User.create({
         viberId: user.viberId,
         username: user.username,
-        avatar: user.timeStamp,
+        team:user.team,
+        avatar: user.avatar,
         tc:moment().valueOf(),
         country:user.country,
         invitations:0
