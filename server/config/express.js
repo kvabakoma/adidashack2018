@@ -5,7 +5,7 @@ const session = require('express-session')
 const passport = require('passport')
 const handlebars = require('express-handlebars')
 const settings = require('./settings')
-
+var cors = require('cors')
 
 module.exports = (app) => {
   app.engine('handlebars', handlebars({
@@ -15,7 +15,7 @@ module.exports = (app) => {
   app.use(cookieParser())
   // app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({extended: true}))
-
+  app.use(cors())
   app.use(session({
     secret: 'neshto-taino!@#$%',
     resave: false,

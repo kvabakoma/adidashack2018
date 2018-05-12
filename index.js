@@ -5,6 +5,7 @@ let botFunc = require('./bot')
 const ViberBot = require('viber-bot').Bot;
 const  events = require('amqplib/callback_api');
 const exchange = 'amq.topic';
+const fileType = require('file-type');
 const key = 'fifa.worldcup.#.russia.#';
 const queue_name = 'Kvaba';
 require('./server/config/database')(settings)
@@ -35,17 +36,12 @@ console.log("Queue name: " + queue_name + " - Topic: " + key);
 events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
 
   conn.createChannel(function(err, channel) {
-    console.log('ERROR_> ',err)
-    console.log('CHANEL> ',channel)
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
-      console.log('Q-> ',q)
-      console.log('QERROR-> ',err)
       channel.bindQueue(q.queue, exchange, "#");
-
       channel.consume(q.queue, function(msg) {
 
         var event = JSON.parse(msg.content.toString())
-        console.log(msg)
+        console.log(fileType(msg.content))
        // console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
       });
 
