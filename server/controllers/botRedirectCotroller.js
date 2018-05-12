@@ -12,21 +12,21 @@ let source = "" +
   "background-color:rgb(67,40,124);" +
   "padding-top:5%} " +
   ".startBtn{" +
-    "font-size:xx-large"+
+    "font-size:xx-large;"+
   "border-radius: 0;" +
   "border-color:black;" +
-  "background-color: black;color: white" +
+  "background-image: url('https://res.cloudinary.com/dqyb8sdlc/image/upload/v1526168554/Start_over_elswgq.png');color: white" +
   "}" +
   ".startBtn:hover{" +
-  "border-color:white" +
-  "background-color: white;color: black" +
+  "border-color:white;" +
+  "background-image: url('https://res.cloudinary.com/dqyb8sdlc/image/upload/v1526168550/Start_normal_mybip1.png');color: black" +
   "}" +
   "</style>" +
-  "<div class='col-md-4 col-md-offset-4 col-xs-12' >" +
+  "<div class='col-md-4 col-md-offset-4 ' >" +
 
   "<div > <img style='width:100%;margin: 0 auto' src='http://res.cloudinary.com/dqyb8sdlc/image/upload/v1526159753/avatar_mykjj7.png' alt=''></div>" +
   "<div <!--style=' display: table;width: 20%;bottom: 8%-->><a href='{{deeplink}}'>" +
-  "<button class='startBtn col-md-4 col-lg-offset-4 col-xs-12' style='' class='btn btn-primary btn-lg '>Участвай </button></a></div>" +
+  "<button class='startBtn col-md-4 col-lg-offset-4 col-xs-3 col-xs-offset-6' style='' class='btn btn-primary btn-lg '>Участвай </button></a></div>" +
   "</div>";
 let template = Handlebars.compile(source);
 
