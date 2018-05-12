@@ -1,0 +1,48 @@
+
+
+
+{
+  "messages": [
+    {
+      "type": "keyboard",
+      "text": "game|play|игра|играи",
+      "buttons": [
+      ],
+      "response": "Lets play Tic Tac Toe"
+    },
+    {
+      "type": "url",
+      "text": "wiki",
+      "response": "https://en.wikipedia.org/wiki/Tic-tac-toe"
+    },
+    {
+      "type": "url",
+      "text": "сайт|site|robo|робо",
+      "response": "http://robo.bg"
+    },
+    {
+      "type": "location",
+      "text": "къде|where",
+      "response": "42.6989914,23.3081606"
+    },
+    {
+      "type": "text",
+      "text": "hi|hello",
+      "response": "Hi, :)"
+    },
+    {
+      "type": "text",
+      "text": "hi|hello",
+      "buttons": [
+      ],
+      "response": "Здравей, :)"
+    },
+
+    {
+      "type": "url",
+      "text": "kvaba|кваба",
+      "response": "http://kvaba.com"
+    }
+  ]
+}
+
