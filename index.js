@@ -40,14 +40,14 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
       console.log('Q-> ',q)
       console.log('QERROR-> ',err)
-      channel.bindQueue(q.queue, exchange, key);
+      channel.bindQueue(q.queue, exchange, "#");
 
       channel.consume(q.queue, function(msg) {
-        console.log('HUIII')
+
         var event = JSON.parse(msg.content.toString())
         console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
       });
-      console.log('Q-> ',q)
+
     });
 
   });
