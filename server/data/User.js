@@ -4,11 +4,12 @@ const encryption = require('../utilities/encryption')
 const REQUIRED_VALIDATION_MESSAGE = '{PATH} is required'
 
 let userSchema = new mongoose.Schema({
-  viberID:String,
+  viberId:String,
   username: String,
   avatar: String,
   ts:Number,
-  invitations:Number
+  invitations:Number,
+  country:String
 })
 
 /*

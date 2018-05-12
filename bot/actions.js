@@ -1,6 +1,6 @@
 const TextMessage = require('viber-bot').Message.Text;
-const  keyboards = require('./storage/keyboards');
-
+const keyboards = require('./storage/keyboards');
+const userController = require('./controllers/users-controller')
 module.exports = {
 
   say: (response, message) => {
@@ -10,17 +10,31 @@ module.exports = {
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
         console.log(userProfile);
-        if (context==='winner') {
+        userProfile.getUserByViberId(userProfile.id)
+          .then(result=> {
+            if (!result) {
+              userController.createBotUser({
+                username: userProfile.name,
+                avatar: userProfile.avatar,
+                viberId: userProfile.id,
+                country: userProfile.country
+              })
+            }
+
+            onFinish(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`));
+
+          })
+       /* if (context === 'winner') {
           console.log(context)
-          let msg =  new TextMessage('Честито! Ти спечели кор',
+          let msg = new TextMessage('Честито! Ти спечели кор',
             keyboards.first)
           console.log(JSON.stringify(msg))
           onFinish(
-           msg
+            msg
           )
         } else {
           onFinish(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`));
-        }
+        }*/
       }
     );
   },
