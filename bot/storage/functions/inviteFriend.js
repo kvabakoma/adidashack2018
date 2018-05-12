@@ -15,7 +15,7 @@ module.exports = ( message, response) => {
   }
  let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + name+'/'+viberId;
 
-  url = encodeURIComponent(url)
+  //url = encodeURIComponent(url)
 
 
 /*
@@ -23,7 +23,8 @@ module.exports = ( message, response) => {
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
 */
  //userController.updateStep(viberId,'waiting')
-  let msg = [new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl)]
+  let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
+   msg = [new TextMessage('Invite Friend '+siteUrl)]
   actions.sendMessages(msg,0,response)
 
 
