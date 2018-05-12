@@ -1,6 +1,6 @@
 const TextMessage = require('viber-bot').Message.Text;
 const keyboards = require('./storage/keyboards/keyboardTeams');
-const userController = require('./controllers/users-controller')
+const userController = require('../server/controllers/users-controller')
 module.exports = {
 
   say: (response, message) => {
