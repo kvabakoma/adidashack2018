@@ -8,6 +8,7 @@ const settings = require('./settings')
 var cors = require('cors')
 
 module.exports = (app) => {
+  app.use(cors())
   app.engine('handlebars', handlebars({
     defaultLayout: 'main'
   }))
@@ -15,7 +16,7 @@ module.exports = (app) => {
   app.use(cookieParser())
   // app.use(bodyParser.json())
   app.use(bodyParser.urlencoded({extended: true}))
-  app.use(cors())
+
   app.use(session({
     secret: 'neshto-taino!@#$%',
     resave: false,

@@ -1,8 +1,8 @@
 /**
  * Created by Kvaba on 11/13/2017.
  */
-const TextMessage = require('../../../kvabaBot').Message.Text;
-const UrlMessage = require('../../../kvabaBot').Message.Url;
+const TextMessage = require('viber-bot').Message.Text;
+const UrlMessage = require('viber-bot').Message.Url;
 const crypto = require('../../../server/utilities/encryption')
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
@@ -24,7 +24,8 @@ module.exports = ( message, response) => {
   let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
 */
- userController.updateStep(viberId,'waiting')
+ //userController.updateStep(viberId,'waiting')
+  let msg = [new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl)]
   actions.sendMessages(msg,0,response)
 
 

@@ -38,7 +38,7 @@ module.exports = (message, response, io) => {
       })
 
     })
-  actions.sendMessages([new TextMessage('Invite your friends',keyboards.invite)])
+  actions.sendMessages([new TextMessage('Invite your friends',keyboards.invite)],0,response)
 
 
 //io.send('join', response.userProfile);
