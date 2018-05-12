@@ -1,12 +1,12 @@
 let env = process.env.NODE_ENV || 'development'
-
 let settings = require('./server/config/settings')[env]
-
 const app = require('express')()
-
 let botFunc = require('./bot')
 const ViberBot = require('viber-bot').Bot;
-
+const  events = require('amqplib/callback_api');
+const exchange = 'amq.topic';
+const key = 'fifa.worldcup.#.Russia.#';
+const queue_name = 'kvaba';
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
 require('./server/config/routes')(app)
@@ -27,3 +27,26 @@ webhookUrl ='https://myteamforcebot.herokuapp.com/viber-bot'
 
 app.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl)))
 console.log(`Server listening on port ${settings.port}...`)
+
+
+//QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
+console.log("Queue name: " + queue_name + " - Topic: " + key);
+
+events.connect('amqp://rabbitmq-broker', function(err, conn) {
+
+  conn.createChannel(function(err, channel) {
+
+    channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
+
+      channel.bindQueue(q.queue, exchange, key);
+
+      channel.consume(q.queue, function(msg) {
+        var event = JSON.parse(msg.content.toString())
+        console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
+      });
+
+    });
+
+  });
+
+});

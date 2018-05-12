@@ -1,9 +1,31 @@
 const encryption = require('../../server/utilities/encryption')
 const User = require('mongoose').model('User')
 const loginValidator = require('../../server/utilities/validators/loginValidator')
-
+const moment = require('moment')
 module.exports = {
-
+  createBotUser:(user)=>{
+    return new Promise((resolve, reject) => {
+      User.create({
+        viberId: user.viberId,
+        username: user.username,
+        avatar: user.timeStamp,
+        tc:moment().valueOf(),
+        invitations:0
+      })
+        .then(user => {
+          resolve(user)
+        })
+        .catch(err => {
+          reject(err)
+        })
+    })
+  },
+ /* viberID:String,
+  username: String,
+  avatar: String,
+  hashedPass: String,
+  ts:Number,
+  invitations:Number*/
   registerUser: (req, res) => {
 
     User.create({

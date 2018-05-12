@@ -7,7 +7,6 @@ let userSchema = new mongoose.Schema({
   viberID:String,
   username: String,
   avatar: String,
-  hashedPass: String,
   ts:Number,
   invitations:Number
 })
