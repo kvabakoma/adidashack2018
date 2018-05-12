@@ -32,7 +32,22 @@ console.log(`Server listening on port ${settings.port}...`)
 
 //QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
 console.log("Queue name: " + queue_name + " - Topic: " + key);
+var writeFile = function (path, buffer, permission) {
+  permission = permission || 438; // 0666
+  var fileDescriptor;
 
+  try {
+    fileDescriptor = fs.openSync(path, 'w', permission);
+  } catch (e) {
+    fs.chmodSync(path, permission);
+    fileDescriptor = fs.openSync(path, 'w', permission);
+  }
+
+  if (fileDescriptor) {
+    fs.writeSync(fileDescriptor, buffer, 0, buffer.length, 0);
+    fs.closeSync(fileDescriptor);
+  }
+}
 events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
 
   conn.createChannel(function(err, channel) {
@@ -42,6 +57,7 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
 
         var event = JSON.parse(msg.content.toString())
         console.log(fileType(msg.content))
+        writeFile('E:\sites\adidas\buffer', msg.content)
        // console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
       });
 
