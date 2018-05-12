@@ -6,7 +6,7 @@ const ViberBot = require('viber-bot').Bot;
 const  events = require('amqplib/callback_api');
 const exchange = 'amq.topic';
 const key = 'fifa.worldcup.#.Russia.#';
-const queue_name = 'kvaba';
+const queue_name = 'Kvaba';
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
 require('./server/config/routes')(app)
