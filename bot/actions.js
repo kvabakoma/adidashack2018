@@ -9,7 +9,7 @@ module.exports = {
 
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
-
+      console.log('START CONVERSATION')
         userController.getUserByViberId(userProfile.id)
           .then(result=> {
 
@@ -27,7 +27,6 @@ module.exports = {
            // botSendMsg(bot,msgs,userProfile.id,0)
            //onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
             onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards));
-
           })
        /* if (context === 'winner') {
           console.log(context)
