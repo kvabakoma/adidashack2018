@@ -25,7 +25,7 @@ module.exports = ( message, response) => {
 */
  //userController.updateStep(viberId,'waiting')
   let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
-   msg.push( new UrlMessage(siteUrl))
+   msg.push( new TextMessage(siteUrl))
   actions.sendMessages(msg,0,response)
 
 
