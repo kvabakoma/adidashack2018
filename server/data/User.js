@@ -8,6 +8,8 @@ let userSchema = new mongoose.Schema({
   username: String,
   avatar: String,
   ts:Number,
+  step:String,
+  team:String,
   invitations:Number,
   country:String
 })
