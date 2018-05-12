@@ -8,7 +8,7 @@ const StickerMessage = require('viber-bot').Message.Sticker;
 const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
 const keyboard = require('../keyboards')
-
+const chooseTeam = require('../functions/teamChoose')
 module.exports = {
   messages: [
     {
@@ -19,9 +19,10 @@ module.exports = {
       ]
     },
     {
-      type: "text",
-      text: "hi|hello",
-      response: "Hi, :)"
+      type: "function",
+      text: "team",
+      response: chooseTeam,
+      keyboard: keyboard.teams
     },
   ]
 }

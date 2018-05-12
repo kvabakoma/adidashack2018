@@ -27,6 +27,27 @@ module.exports = (bot) => {
       contactMessageHandler(response, message, bot)
 
     }
+    if ((message instanceof TextMessage)) {
+
+      let botResponse = messageDispatch.dispatch(message.text);
+      let storageMessage = botResponse.message;
+      let strippedText = botResponse.strippedText;
+      if (storageMessage) {
+        if (storageMessage.type === 'text') {
+          if (!user) {
+            actions.sendMessages(storageMessage.response, 0, response);
+          }
+          userCotroller.updateStep(user.viberId, strippedText)
+            .then(res => {
+              actions.sendMessages(storageMessage.response, 0, response)
+            }).catch(error => console.log(error))
+        }
+        if (storageMessage.type === 'function') {
+          actions.executeFunction(storageMessage,strippedText,response,user,bot)
+        }
+      }
+
+    }
     // This sample bot can answer only text messages, let's make sure the user is aware of that.
     /*if (!(message instanceof TextMessage) && !(message instanceof StickerMessage) && !(message instanceof ContactMessage)) {
 

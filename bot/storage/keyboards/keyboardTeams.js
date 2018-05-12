@@ -1,3 +1,5 @@
+const constants = require('../../constants')
+
 module.exports = {
   Type: "keyboard",
   Buttons: [
@@ -9,7 +11,7 @@ module.exports = {
     "TextHAlign": "center",
     "TextVAlign": "bottom",
     "ActionType": "reply",
-    "ActionBody": "Bulgaria-team",
+    "ActionBody": constants.MESSAGE_PREFIX+"Bulgaria-team",
     "Image": "https://cdn.britannica.com/04/6204-004-95944DD6.jpg"
   },
     {
@@ -20,7 +22,7 @@ module.exports = {
     "TextHAlign": "center",
     "TextVAlign": "bottom",
     "ActionType": "reply",
-    "ActionBody": "Spain-team",
+    "ActionBody": constants.MESSAGE_PREFIX+"Spain-team",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/300px-Flag_of_Spain.svg.png"
   }
   ]

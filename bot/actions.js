@@ -94,7 +94,11 @@ module.exports = {
     }
 
   },
+  executeFunction: (botResponseMsg, stripedText, response, user, bot) => {
 
+    botResponseMsg.response(stripedText, response, user, bot);
+
+  },
 
 }
 function botSendMsg(bot, messages, viberId, index) {
