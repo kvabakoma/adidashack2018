@@ -6,7 +6,7 @@ const ViberBot = require('viber-bot').Bot;
 const  events = require('amqplib/callback_api');
 const exchange = 'amq.topic';
 const key = 'fifa.worldcup.#.Russia.#';
-const queue_name = 'Kvaba';
+const queue_name = 'kvaba';
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
 require('./server/config/routes')(app)
@@ -38,7 +38,8 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
     console.log('ERROR_> ',err)
     console.log('CHANEL> ',channel)
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
-
+      console.log('Q-> ',q)
+      console.log('QERROR-> ',err)
       channel.bindQueue(q.queue, exchange, key);
 
       channel.consume(q.queue, function(msg) {
