@@ -20,8 +20,6 @@ module.exports = (bot) => {
 
   bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 
-    console.log('RECIVED MSG-> ',message)
-    console.log('RECIVED REP-> ',response)
     if ((message instanceof ContactMessage)) {
       console.log(message)
       contactMessageHandler(response, message, bot)
@@ -34,13 +32,13 @@ module.exports = (bot) => {
       let strippedText = botResponse.strippedText;
       if (storageMessage) {
         if (storageMessage.type === 'text') {
-          if (!user) {
+
             actions.sendMessages(storageMessage.response, 0, response);
-          }
-          userCotroller.updateStep(user.viberId, strippedText)
+
+          /*userCotroller.updateStep(user.viberId, strippedText)
             .then(res => {
               actions.sendMessages(storageMessage.response, 0, response)
-            }).catch(error => console.log(error))
+            }).catch(error => console.log(error))*/
         }
         if (storageMessage.type === 'function') {
           actions.executeFunction(storageMessage,strippedText,response,user,bot)
