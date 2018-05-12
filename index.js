@@ -18,7 +18,7 @@ require('./server/config/passport')()
 const bot = new ViberBot({
   authToken: "47d4e8e84427d4f9-42383ddfecea6700-5293f2bce208c3fa", // Learn how to get your access token at developers.viber.com
   name: "MyTeamForce",
-  avatar: "https://raw.githubusercontent.com/devrelv/drop/master/151-icon.png" // Just a placeholder avatar to display the user
+  avatar: "http://res.cloudinary.com/dqyb8sdlc/image/upload/v1526159753/avatar_mykjj7.png" // Just a placeholder avatar to display the user
 });
 console.log(settings);
 

@@ -9,24 +9,34 @@ const actions = require('../../actions')
 const messageDispatcher = require('./../../messages/messageDispatch')
 //const weeklyGame = require('../../weeklyGame/index')
 
-module.exports = ( message, response,io) => {
- /* let name = response.userProfile.name;
-  let viberId =  response.userProfile.id
-  if (response.userProfile.name.length) {
-    name = crypto.encrypt(name);
-  }
-  let siteUrl = 'https://pulse-fitness-bot.herokuapp.com/pulse-invitation/' + name+'/'+viberId;
+module.exports = (message, response, io) => {
+  /* let name = response.userProfile.name;
+   let viberId =  response.userProfile.id
+   if (response.userProfile.name.length) {
+   name = crypto.encrypt(name);
+   }
+   let siteUrl = 'https://pulse-fitness-bot.herokuapp.com/pulse-invitation/' + name+'/'+viberId;
 
-//  url = encodeURIComponent(url)
+   //  url = encodeURIComponent(url)
 
 
-  let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
+   let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
- userController.updateStep(viberId,'waiting')
-  actions.sendMessages(msg,0,response)*/
+   userController.updateStep(viberId,'waiting')
+   actions.sendMessages(msg,0,response)*/
+  7
+  let viberId = response.userProfile.id
+  userController.updateTeam(viberId)
+    .then(updatedUser=> {
+      console.log(updatedUser)
+      io.sockets.emit('join', {
+        name:updatedUser.username,
+        avatar:updatedUser.avatar,
+        team:updatedUser.team
+      })
+    })
 
- let viberId =response.userProfile.id
- io.sockets.emit('join', response.userProfile)
+
 //io.send('join', response.userProfile);
   console.log('CHOOSE TEAM FUNCTION')
 }
