@@ -42,7 +42,8 @@ events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', funct
       channel.consume(q.queue, function(msg) {
 
         var event = JSON.parse(msg.content.toString())
-        console.log(fileType(msg.content))
+        console.log(event)
+       // console.log(fileType(msg.content))
 
        // console.log(`Topic: ${msg.fields.routingKey} & event.type: ${event.type}`);
       });

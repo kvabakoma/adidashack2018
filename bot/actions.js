@@ -10,7 +10,7 @@ module.exports = {
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
         console.log(userProfile);
-        userProfile.getUserByViberId(userProfile.id)
+        userController.getUserByViberId(userProfile.id)
           .then(result=> {
             if (!result) {
               userController.createBotUser({
