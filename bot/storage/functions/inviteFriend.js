@@ -15,7 +15,7 @@ module.exports = ( message, response) => {
   }
  let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + name+'/'+viberId;
 
-  //url = encodeURIComponent(url)
+  siteUrl = encodeURIComponent(siteUrl)
 
 
 /*
