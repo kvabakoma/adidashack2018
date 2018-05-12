@@ -98,7 +98,7 @@ function botSendMsg(bot, messages, viberId, index) {
   if (messages[index]) {
     bot.sendMessage({id: viberId}, messages[index])
       .then(res => {
-
+       console.log(res)
         index++;
 
         if (index > messages.length - 1) {
