@@ -26,7 +26,7 @@ module.exports = (bot) => {
 
     }
     if ((message instanceof TextMessage)) {
-
+         console.log('MESSAGE_TEXT',message.text)
       let botResponse = messageDispatch.dispatch(message.text);
       let storageMessage = botResponse.message;
       let strippedText = botResponse.strippedText;
