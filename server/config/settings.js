@@ -14,6 +14,6 @@ module.exports = {
   production: {
     port: process.env.PORT,
     rootPath: rootPath,
-    db: 'mongodb://dev:bakL@va@ds119060.mlab.com:19060/mtf',
+    db: 'mongodb://dev:bakLava@ds119060.mlab.com:19060/mtf',
   }
 }
