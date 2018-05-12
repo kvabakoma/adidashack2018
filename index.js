@@ -33,7 +33,7 @@ console.log(`Server listening on port ${settings.port}...`)
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
 events.connect('amqp://rabbitmq-broker', function(err, conn) {
-
+  console.log(err)
   conn.createChannel(function(err, channel) {
 
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
