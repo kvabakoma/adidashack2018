@@ -8,7 +8,7 @@ let source = "" +
   " <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>" +
   "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>" +
   "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>" +
-  "<style> body{background-color:'#43287C';padding-top:5%} </style>" +
+  "<style> body{background-color:rgb(67,40,124);padding-top:5%} </style>" +
   "<div class='col-md-4 col-md-offset-4'>" +
   "<h1 style='text-align: center '>{{invitedBy}} те покани:</h1>" +
   "<div class='col-sm-10 col-sm-offset-1 '> <img style='width:100%;margin: 0 auto' src='http://res.cloudinary.com/dqyb8sdlc/image/upload/v1526159753/avatar_mykjj7.png' alt=''></div>" +
