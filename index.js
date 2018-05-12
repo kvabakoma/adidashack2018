@@ -1,6 +1,7 @@
 let env = process.env.NODE_ENV || 'development'
 let settings = require('./server/config/settings')[env]
 const app = require('express')()
+var http = require('http').Server(app);
 let botFunc = require('./bot')
 const ViberBot = require('viber-bot').Bot;
 const  events = require('amqplib/callback_api');
@@ -9,7 +10,7 @@ const fileType = require('file-type');
 const key = 'fifa.worldcup.#.russia.#';
 const queue_name = 'Kvaba';
 const fs =require('fs')
-let io = require('socket.io')(server);
+let io = require('socket.io')(http);
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
 require('./server/config/routes')(app)
@@ -20,24 +21,25 @@ const bot = new ViberBot({
   avatar: "https://raw.githubusercontent.com/devrelv/drop/master/151-icon.png" // Just a placeholder avatar to display the user
 });
 console.log(settings);
-io.on('connection', (socket) => {
-  console.log("Connected to Socket!!" + socket.id);
+
  /* socket.on('addTodo', (Todo) => {
     reservController.createReservation(socket, Todo);
   })*/
 
-botFunc(bot,socket)
+
 
 app.use('/viber-bot',bot.middleware())
 app.all('*', (req, res) => {
   res.send("working");
 })
+
 webhookUrl ='https://myteamforcebot.herokuapp.com/viber-bot'
 
-app.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl)))
+http.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl)))
 console.log(`Server listening on port ${settings.port}...`)
-
-
+io.on('connection', (socket) => {
+  console.log("Connected to Socket!!" + socket.id);
+  botFunc(bot,socket)
 //QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
