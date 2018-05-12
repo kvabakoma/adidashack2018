@@ -19,10 +19,10 @@ let source = "" +
   "}" +
   "</style>" +
   "<div class='col-md-4 col-md-offset-4'>" +
-  "<h1 style='text-align: center '>{{invitedBy}} те покани:</h1>" +
+
   "<div > <img style='width:100%;margin: 0 auto' src='http://res.cloudinary.com/dqyb8sdlc/image/upload/v1526159753/avatar_mykjj7.png' alt=''></div>" +
   "<div <!--style=' display: table;width: 20%;bottom: 8%-->><a href='{{deeplink}}'>" +
-  "<button class='startBtn col-md-4 col-lg-offset-4' style='' class='btn btn-primary btn-lg'>Участвай </button></a></div>" +
+  "<button class='startBtn col-md-4 col-lg-offset-4 col-xs-12' style='' class='btn btn-primary btn-lg '>Участвай </button></a></div>" +
   "</div>";
 let template = Handlebars.compile(source);
 
