@@ -1,5 +1,5 @@
 const encryption = require('../../server/utilities/encryption')
-const User = require('mongoose').model('User')
+const User = require('../data/User')
 const loginValidator = require('../../server/utilities/validators/loginValidator')
 const moment = require('moment')
 module.exports = {
