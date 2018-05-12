@@ -8,6 +8,7 @@ const exchange = 'amq.topic';
 const fileType = require('file-type');
 const key = 'fifa.worldcup.#.russia.#';
 const queue_name = 'Kvaba';
+const fs =require('fs')
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
 require('./server/config/routes')(app)
