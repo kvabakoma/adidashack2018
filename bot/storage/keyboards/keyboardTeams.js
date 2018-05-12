@@ -9,9 +9,7 @@ module.exports = {
     "TextHAlign": "center",
     "TextVAlign": "bottom",
     "ActionType": "reply",
-    "ActionBody": "Bulgaria-team",
-    "BgColor": "#f7bb3f",
-    "Image": "https://cdn.britannica.com/04/6204-004-95944DD6.jpg"
+    "ActionBody": "Bulgaria-team"
   },
     {
     "Columns": 3,
@@ -21,9 +19,7 @@ module.exports = {
     "TextHAlign": "center",
     "TextVAlign": "bottom",
     "ActionType": "reply",
-    "ActionBody": "Spain-team",
-    "BgColor": "#f6f7f9",
-    "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/300px-Flag_of_Spain.svg.png"
+    "ActionBody": "Spain-team"
   }
   ]
 }
