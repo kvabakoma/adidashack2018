@@ -2,12 +2,10 @@
  * Created by Kvaba on 11/13/2017.
  */
 const TextMessage = require('viber-bot').Message.Text;
-const UrlMessage = require('viber-bot').Message.Url;
+
 const crypto = require('../../../server/utilities/encryption')
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
-const messageDispatcher = require('./../../messages/messageDispatch')
-const weeklyGame = require('../../weeklyGame/index')
 
 module.exports = ( message, response) => {
   let name = response.userProfile.name;
