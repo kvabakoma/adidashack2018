@@ -11,7 +11,7 @@ const encryption = require('../server/utilities/encryption');
 const actions = require('./actions');
 
 
-module.exports = (bot,socket) => {
+module.exports = (bot,io) => {
 
 
   actions.welcomeNewUser(bot);
@@ -41,7 +41,7 @@ module.exports = (bot,socket) => {
             }).catch(error => console.log(error))*/
         }
         if (storageMessage.type === 'function') {
-          actions.executeFunction(storageMessage,strippedText,response,socket,bot)
+          actions.executeFunction(storageMessage,strippedText,response,io,bot)
         }
       }
 
