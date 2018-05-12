@@ -58,7 +58,7 @@ module.exports = {
 
     return {
       message: msg,
-      strippedText:  text
+      strippedText:  strippedMessageText
     }
 
   }
