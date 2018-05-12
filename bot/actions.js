@@ -12,7 +12,7 @@ module.exports = {
         console.log(userProfile);
         if (context==='winner') {
           console.log(context)
-          let msg =  new TextMessage('Честито! Ти спечели страхотен подарък от Pulse на стойност 130лв!Искаш ли да научиш повече?',
+          let msg =  new TextMessage('Честито! Ти спечели кор',
             keyboards.first)
           console.log(JSON.stringify(msg))
           onFinish(

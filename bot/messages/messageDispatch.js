@@ -6,9 +6,9 @@ const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
 
 const ticTacToe = require('./../customFunctions/ticTacToe');
-const fetchData = require('./../data/fetchData');
-const fetchFunctions = require('./../data/fechFunctions')
-const firebase = require('./../data/firebaseFunc')
+/*const fetchData = require('./../data/fetchData');
+const fetchFunctions = require('./../data/fechFunctions')*/
+//const firebase = require('./../data/firebaseFunc')
 const keyboard = require('../storage/keyboards')
 const messages = require('../storage/messages/messages');
 const messageSander =require('./messageSender');

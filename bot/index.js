@@ -20,6 +20,8 @@ module.exports = (bot) => {
 
   bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
 
+    console.log('RECIVED MSG-> ',message)
+    console.log('RECIVED REP-> ',response)
     if ((message instanceof ContactMessage)) {
       console.log(message)
       contactMessageHandler(response, message, bot)
@@ -33,7 +35,7 @@ module.exports = (bot) => {
     }*/
   });
 
-  bot.onTextMessage(/./, (message, response) => {
+ /* bot.onTextMessage(/./, (message, response) => {
     console.log('Message-' + message.text);
     let newMesg = messageDispatch.storageMessage(message.text, response)
 
@@ -41,5 +43,5 @@ module.exports = (bot) => {
       console.log(newMesg.response[1])
       response.send(newMesg.response[1])
     }
-  })
+  })*/
 }

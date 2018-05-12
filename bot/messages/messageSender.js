@@ -9,10 +9,6 @@ const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
 const keyboard = require('../storage/keyboards')
 module.exports =(newMessage,response,bot) => {
-
-
-
-
     /*  if (newMessage.keyboard != null) {
      // keyboard = data.keyboards[+newMessage.keyboard]
      }*/
@@ -26,7 +22,7 @@ module.exports =(newMessage,response,bot) => {
       case 'url':
         //  resolve(new UrlMessage(newMessage.response, keyboard));
         break;
-s
+
       case 'location':
        /* let LatLong = newMessage.response.split(',');
         let latitude = +LatLong[0]
