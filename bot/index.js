@@ -1,29 +1,45 @@
-let env = process.env.NODE_ENV || 'development'
-
-let settings = require('./server/config/settings')[env]
-
-const app = require('express')()
-
-let botFunc = require('./bot')
+'use strict';
+//const fetchData = require('./fetchData');
 const ViberBot = require('viber-bot').Bot;
+const BotEvents = require('viber-bot').Events;
+const TextMessage = require('viber-bot').Message.Text;
+const StickerMessage = require('viber-bot').Message.Sticker;
+const ContactMessage = require('viber-bot').Message.Contact;
+const messageDispatch = require('./messages/messageDispatch')
+const contactMessageHandler = require('./messages/handelContactMsg')
+const encryption = require('../server/utilities/encryption');
+const actions = require('./actions');
 
-require('./server/config/database')(settings)
-require('./server/config/express')(app)
-require('./server/config/routes')(app)
-require('./server/config/passport')()
-const bot = new ViberBot({
-  authToken: "4621f1def3715242-3fe0bb40cf5a02ce-1b9cdf0e95ff7989", // Learn how to get your access token at developers.viber.com
-  name: "Robo",
-  avatar: "https://raw.githubusercontent.com/devrelv/drop/master/151-icon.png" // Just a placeholder avatar to display the user
-});
-console.log(settings);
-botFunc(bot)
 
-app.use('/viber-bot',bot.middleware())
-app.all('*', (req, res) => {
-  res.send("working");
-})
-webhookUrl ='https://pulse-bot-viber.herokuapp.com/viber-bot'
+module.exports = (bot) => {
 
-app.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl)))
-console.log(`Server listening on port ${settings.port}...`)
+
+  actions.welcomeNewUser(bot);
+  actions.startConversation(bot);
+
+
+  bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {
+
+    if ((message instanceof ContactMessage)) {
+      console.log(message)
+      contactMessageHandler(response, message, bot)
+
+    }
+    // This sample bot can answer only text messages, let's make sure the user is aware of that.
+    /*if (!(message instanceof TextMessage) && !(message instanceof StickerMessage) && !(message instanceof ContactMessage)) {
+
+      console.log(message);
+      actions.say(response, `Sorry. I can only understand text messages.`);
+    }*/
+  });
+
+  bot.onTextMessage(/./, (message, response) => {
+    console.log('Message-' + message.text);
+    let newMesg = messageDispatch.storageMessage(message.text, response)
+
+    if(newMesg){
+      console.log(newMesg.response[1])
+      response.send(newMesg.response[1])
+    }
+  })
+}
