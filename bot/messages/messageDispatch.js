@@ -1,9 +1,9 @@
-const TextMessage = require('../../kvabaBot').Message.Text;
-const UrlMessage = require('../../kvabaBot').Message.Url;
-const LocationMessage = require('../../kvabaBot').Message.Location;
-const StickerMessage = require('../../kvabaBot').Message.Sticker;
-const ContactMessage = require('../../kvabaBot').Message.Contact;
-const PictureMessage = require('../../kvabaBot').Message.Picture;
+const TextMessage = require('viber-bot').Message.Text;
+const UrlMessage = require('viber-bot').Message.Url;
+const LocationMessage = require('viber-bot').Message.Location;
+const StickerMessage = require('viber-bot').Message.Sticker;
+const ContactMessage = require('viber-bot').Message.Contact;
+const PictureMessage = require('viber-bot').Message.Picture;
 
 const messages = require('../storage/messages/messages');
 
