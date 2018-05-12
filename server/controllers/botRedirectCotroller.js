@@ -14,7 +14,7 @@ let source = "" +
   ".startBtn{" +
     "font-size:xx-large"+
   "border-radius: 0;" +
-  "border-color:black" +
+  "border-color:black;" +
   "background-color: black;color: white" +
   "}" +
   ".startBtn:hover{" +
