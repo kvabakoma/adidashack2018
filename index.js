@@ -32,7 +32,7 @@ console.log(`Server listening on port ${settings.port}...`)
 //QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
-events.connect('amqp://rabbitmq-broker', function(err, conn) {
+events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
   console.log(err)
   conn.createChannel(function(err, channel) {
 
