@@ -1,6 +1,7 @@
 module.exports = {
   Type: "keyboard",
-  Buttons: [{
+  Buttons: [
+    {
     "Columns": 3,
     "Rows": 2,
     "Text": "<font color=\"#494E67\">Bulgaria</font><br><br>",
@@ -11,7 +12,8 @@ module.exports = {
     "ActionBody": "Bulgaria-team",
     "BgColor": "#f7bb3f",
     "Image": "https://cdn.britannica.com/04/6204-004-95944DD6.jpg"
-  }, {
+  },
+    {
     "Columns": 3,
     "Rows": 2,
     "Text": "<font color=\"#494E67\">Spain</font><br><br>",
@@ -22,5 +24,6 @@ module.exports = {
     "ActionBody": "Spain-team",
     "BgColor": "# f6f7f9",
     "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/300px-Flag_of_Spain.svg.png"
-  }]
+  }
+  ]
 }
