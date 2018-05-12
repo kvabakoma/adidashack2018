@@ -1,8 +1,8 @@
 /**
  * Created by Kvaba on 11/13/2017.
  */
-const TextMessage = require('../../../kvabaBot').Message.Text;
-const UrlMessage = require('../../../kvabaBot').Message.Url;
+const TextMessage = require('viber-bot').Message.Text;
+const UrlMessage = require('viber-bot').Message.Url;
 const crypto = require('../../../server/utilities/encryption')
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
