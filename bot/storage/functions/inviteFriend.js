@@ -4,7 +4,7 @@
 const TextMessage = require('viber-bot').Message.Text;
 
 const crypto = require('../../../server/utilities/encryption')
-const UrlMessage = require('../../../kvabaBot').Message.Url;
+const UrlMessage = require('viber-bot').Message.Url;
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
 
