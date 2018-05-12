@@ -9,7 +9,7 @@ const actions = require('../../actions')
 const messageDispatcher = require('./../../messages/messageDispatch')
 //const weeklyGame = require('../../weeklyGame/index')
 
-module.exports = ( message, response) => {
+module.exports = ( message, response,socket) => {
  /* let name = response.userProfile.name;
   let viberId =  response.userProfile.id
   if (response.userProfile.name.length) {
@@ -28,7 +28,7 @@ module.exports = ( message, response) => {
  let viberId =response.userProfile.id
   console.log(viberId)
   console.log(message)
-
+  io.broadcast.emit('join', response.userProfile)
 
   console.log('CHOOSE TEAM FUNCTION')
 }

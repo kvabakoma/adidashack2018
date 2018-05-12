@@ -96,7 +96,7 @@ module.exports = {
   },
   executeFunction: (botResponseMsg, stripedText, response, user,socket, bot) => {
 
-    botResponseMsg.response(stripedText, response, user,socket, bot);
+    botResponseMsg.response(stripedText, response,socket, user, bot);
 
   },
 
