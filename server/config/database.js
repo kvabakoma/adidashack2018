@@ -7,6 +7,7 @@ const CustomFunction = require('../data/CustomFunction')
 mongoose.Promise = global.Promise
 
 module.exports = (settings) => {
+  console.log('mongo settings -> ',settings.db)
   mongoose.connect(settings.db)
   let db = mongoose.connection
 
