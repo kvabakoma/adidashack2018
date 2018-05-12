@@ -33,9 +33,10 @@ console.log(`Server listening on port ${settings.port}...`)
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
 events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
-  console.log(err)
-  conn.createChannel(function(err, channel) {
 
+  conn.createChannel(function(err, channel) {
+    console.log('ERROR_> ',err)
+    console.log('CHANEL> ',channel)
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
 
       channel.bindQueue(q.queue, exchange, key);
