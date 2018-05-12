@@ -25,8 +25,8 @@ module.exports = {
             msgs.push(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`,keyboards.teams))
             msgs.push(new TextMessage(`Pick team that you support`,keyboards.teams))
            // botSendMsg(bot,msgs,userProfile.id,0)
-           onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
-           // onFinish(new TextMessage(`${userProfile.name} Pick team that you support`));
+           //onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
+            onFinish(new TextMessage(`${userProfile.name} Pick team that you support`));
 
           })
        /* if (context === 'winner') {
