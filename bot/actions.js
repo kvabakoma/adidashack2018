@@ -1,5 +1,5 @@
 const TextMessage = require('viber-bot').Message.Text;
-const keyboards = require('./storage/keyboards');
+const keyboards = require('./storage/keyboards/keyboardTeams');
 const userController = require('./controllers/users-controller')
 module.exports = {
 
@@ -26,7 +26,7 @@ module.exports = {
             msgs.push(new TextMessage(`Pick team that you support`,keyboards.teams))
            // botSendMsg(bot,msgs,userProfile.id,0)
            //onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
-            onFinish(new TextMessage(`${userProfile.name} Pick team that you support`));
+            onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards));
 
           })
        /* if (context === 'winner') {
