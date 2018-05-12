@@ -9,10 +9,10 @@ module.exports = {
 
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
-        console.log(userProfile);
+
         userController.getUserByViberId(userProfile.id)
           .then(result=> {
-            console.log('ACTION->',result)
+
             if (!result) {
               userController.createBotUser({
                 username: userProfile.name,

@@ -6,7 +6,7 @@ const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
 
 const messages = require('../storage/messages/messages');
-
+const constants = require('../constants')
 //const inputHandlers = require('../storage/userInputHandlers/userInputHandlers')
 
 
