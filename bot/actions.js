@@ -94,7 +94,7 @@ module.exports = {
     }
 
   },
-  executeFunction: (botResponseMsg, stripedText, response, user,io, bot) => {
+  executeFunction: (botResponseMsg, stripedText, response,io, user, bot) => {
    console.log('EXECUTE'+ io)
     botResponseMsg.response(stripedText, response,io, user, bot);
 
