@@ -4,6 +4,7 @@
 const TextMessage = require('viber-bot').Message.Text;
 
 const crypto = require('../../../server/utilities/encryption')
+const UrlMessage = require('../../../kvabaBot').Message.Url;
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
 
@@ -24,7 +25,7 @@ module.exports = ( message, response) => {
 */
  //userController.updateStep(viberId,'waiting')
   let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
-   msg = [new TextMessage(`Invite Friend`+siteUrl)]
+   msg.push( new UrlMessage(siteUrl))
   actions.sendMessages(msg,0,response)
 
 
