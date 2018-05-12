@@ -28,7 +28,7 @@ module.exports = ( message, response,socket) => {
  let viberId =response.userProfile.id
   console.log(viberId)
   console.log(message)
-  socket.broadcast.emit('join', response.userProfile)
+  socket.sockets.emit('join', response.userProfile)
 
   console.log('CHOOSE TEAM FUNCTION')
 }
