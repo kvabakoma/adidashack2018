@@ -7,7 +7,7 @@ const PictureMessage = require('viber-bot').Message.Picture;
 
 const messages = require('../storage/messages/messages');
 
-const inputHandlers = require('../storage/userInputHandlers/userInputHandlers')
+//const inputHandlers = require('../storage/userInputHandlers/userInputHandlers')
 
 
 let inputHandler = (message) => {
