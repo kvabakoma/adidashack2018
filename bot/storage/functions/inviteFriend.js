@@ -15,13 +15,15 @@ module.exports = ( message, response) => {
   if (response.userProfile.name.length) {
     name = crypto.encrypt(name);
   }
-  let siteUrl = 'https://pulse-fitness-bot.herokuapp.com/pulse-invitation/' + name+'/'+viberId;
+ let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + name+'/'+viberId;
 
-//  url = encodeURIComponent(url)
+  url = encodeURIComponent(url)
 
 
+/*
   let msg = [new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"')]
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
+*/
  userController.updateStep(viberId,'waiting')
   actions.sendMessages(msg,0,response)
 

@@ -4,7 +4,7 @@
 
 
 const MESSAGE_PREFIX = '1a3dace9cc';
-const BUTTONS_BACKGROUND_COLOR = "#7D539F";
+const BUTTONS_BACKGROUND_COLOR = "#43287C";
 const BUTTONS_TEXT_COLOR = "#FFFFFF";
 
 module.exports ={

@@ -3,7 +3,7 @@ const auth = require('./auth')
 const settings = require('./settings')
 const bodyParser = require('body-parser')
 module.exports = (app) => {
-
+  app.get('/adidas/:tel/:viberId', bodyParser.json(), controllers.redirect.redirect)
 //  app.get('/about', auth.isAuthenticated, controllers.home.about)
  /* app.post('/api/users/register',bodyParser.json(), controllers.users.registerUser)
   app.get('/api/users/loggedUser',bodyParser.json(), controllers.users.loginGet)

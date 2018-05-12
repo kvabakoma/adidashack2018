@@ -6,6 +6,7 @@ const UrlMessage = require('viber-bot').Message.Url;
 const crypto = require('../../../server/utilities/encryption')
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
+const keyboards = require('../keyboards')
 const messageDispatcher = require('./../../messages/messageDispatch')
 //const weeklyGame = require('../../weeklyGame/index')
 
@@ -35,7 +36,9 @@ module.exports = (message, response, io) => {
         avatar:updatedUser.avatar,
         team:updatedUser.team
       })
+
     })
+  actions.sendMessages([new TextMessage('Invite your friends',keyboards.invite)])
 
 
 //io.send('join', response.userProfile);

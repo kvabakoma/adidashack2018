@@ -8,6 +8,7 @@ const StickerMessage = require('viber-bot').Message.Sticker;
 const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
 const keyboard = require('../keyboards')
+const inviteFriend = require('../functions/inviteFriend')
 const chooseTeam = require('../functions/teamChoose')
 module.exports = {
   messages: [
@@ -24,5 +25,10 @@ module.exports = {
       response: chooseTeam,
       keyboard: keyboard.teams
     },
+    {
+      type: "function",
+      text: "invite_friend",
+      response: inviteFriend
+    }
   ]
 }
