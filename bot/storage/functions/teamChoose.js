@@ -30,16 +30,18 @@ module.exports = (message, response, io) => {
   let team = message.split('-')[0]
   userController.updateTeam(viberId,team)
     .then(updatedUser=> {
-      userController.getUserByTeams().then(data=>{
+
         console.log(updatedUser)
         io.sockets.emit('join', {
           name:updatedUser.username,
           avatar:updatedUser.avatar,
           team:updatedUser.team,
+      })
+      userController.getUserByTeams().then(data=>{
+        io.sockets.emit('team-stats',{
           spain:data[0],
           netherlands:data[1]
-      })
-      
+        })
       })
 
     })
