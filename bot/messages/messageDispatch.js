@@ -66,7 +66,7 @@ module.exports = {
             text: "invite_friend",
             response: invite
           },
-          strippedText:invite_friend
+          strippedText:'invite_friend'
         }
       }else{
         strippedMessageText='lets-go'
