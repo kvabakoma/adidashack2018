@@ -35,8 +35,7 @@ module.exports = {
   //  let invatedBy = decryptetContex.split('-')[1]
     let deeplink = 'viber://pa?chatURI=myteamforce&context=inv-' + encryptedPhoneNumber;
     let data = {
-      "deeplink": deeplink,
-      //"invitedBy": invatedBy
+      "deeplink": deeplink
     }
     console.log('DATA->',data)
     let result = template(data);
