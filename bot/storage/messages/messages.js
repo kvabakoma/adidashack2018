@@ -14,9 +14,8 @@ module.exports = {
   messages: [
     {
       type: "text",
-      text: "step01",
-      response: [new TextMessage("Ти печелиш:"),
-        new TextMessage("- Изброяваме наградите!",keyboard.step01),
+      text: "lets-go",
+      response: [new TextMessage("- Изброяваме наградите!",keyboard.step01),
       ]
     },
     {

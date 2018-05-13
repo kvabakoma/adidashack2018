@@ -39,8 +39,8 @@ module.exports = {
               })
             }
             let msgs =[]
-            msgs.push(new TextMessage(`Hi, ${userProfile.name}! Nice to meet you.`))
-            msgs.push(new TextMessage(`Pick team that you support`,keyboards))
+            msgs.push(new TextMessage(`Welcome to Adidas My Team Force!`))
+            msgs.push(new TextMessage(`Before we begin - would you share you shoe size?`,keyboards))
             console.log(userProfile.id)
            botSendMsg(bot,msgs,userProfile.id,0)
            //onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
