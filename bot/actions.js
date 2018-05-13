@@ -9,6 +9,11 @@ module.exports = {
 
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
+      if (context&&context.indexOf('inv')>-1){
+        let viberId =context.split('-')[1]
+        console.log('CONTEXT->',viberId)
+        userController.updateInvated(viberId)
+      }
       console.log('START CONVERSATION')
         userController.getUserByViberId(userProfile.id)
           .then(result=> {
