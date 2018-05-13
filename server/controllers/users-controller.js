@@ -4,7 +4,7 @@ const loginValidator = require('../../server/utilities/validators/loginValidator
 const moment = require('moment')
 const globalObjects = require('../utilities/globalObjects')
 const actions = require('../../bot/actions')
-
+const TextMessage = require('viber-bot').Message.Text;
 module.exports = {
   createBotUser: (user)=> {
     return new Promise((resolve, reject) => {
