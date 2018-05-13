@@ -15,7 +15,7 @@ module.exports = (bot,io) => {
 
 
   actions.welcomeNewUser(bot);
-  actions.startConversation(bot);
+  actions.startConversation(bot,io);
 
 
   bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {

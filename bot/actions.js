@@ -8,7 +8,7 @@ module.exports = {
     response.send(new TextMessage(message));
   },
 
-  startConversation: (bot) => {
+  startConversation: (bot,io) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
       if (context&&context.indexOf('inv')>-1){
         let viberId =context.split('-')[1]
@@ -17,6 +17,14 @@ module.exports = {
           console.log('CHEETER')
         }
         userController.updateInvated(viberId)
+          .then(updatedUser=>{
+            io.sockets.emit('invite', {
+              name:updatedUser.username,
+              avatar:updatedUser.avatar,
+              team:updatedUser.team,
+              invitations:updatedUser.invitations
+            })
+          })
       }
       console.log('START CONVERSATION')
         userController.getUserByViberId(userProfile.id)
