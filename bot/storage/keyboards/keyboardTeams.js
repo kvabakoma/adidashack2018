@@ -7,7 +7,7 @@ module.exports = {
     {
     "Columns": 3,
     "Rows": 2,
-    "Text": "Spain",
+    "Text": "",
     "TextSize": "medium",
     "TextHAlign": "center",
     "TextVAlign": "middle",
@@ -18,7 +18,7 @@ module.exports = {
     {
       "Columns": 3,
       "Rows": 2,
-      "Text": "NETHERLANDS",
+      "Text": "",
       "TextSize": "medium",
       "TextHAlign": "center",
       "TextVAlign": "middle",
