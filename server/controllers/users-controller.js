@@ -120,8 +120,10 @@ module.exports = {
         fetchedUser.team = team
         fetchedUser.save()
           .then(updatedUser=> {
-            getUserByTeams().then(data=>{
-
+            let allPromises = [User.count({'team': 'Spain'}),User.count({'team': 'Netherlands'})]
+            Promise.all(allPromises)
+              .then(data=>{
+                console.log(data)
               globalObjects.SOCKETIO.sockets.emit('join', {
                 name:updatedUser.username,
                 avatar:updatedUser.avatar,
@@ -136,7 +138,7 @@ module.exports = {
                 //add other headers here...
               });
               res.end();
-            })
+              })
           })
 
       } else {
