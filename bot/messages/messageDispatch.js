@@ -4,7 +4,7 @@ const LocationMessage = require('viber-bot').Message.Location;
 const StickerMessage = require('viber-bot').Message.Sticker;
 const ContactMessage = require('viber-bot').Message.Contact;
 const PictureMessage = require('viber-bot').Message.Picture;
-
+const keyboards = require('../storage/keyboards')
 const messages = require('../storage/messages/messages');
 const constants = require('../constants')
 //const inputHandlers = require('../storage/userInputHandlers/userInputHandlers')
@@ -58,12 +58,12 @@ module.exports = {
       }
     } else {
       console.log('USER INPUT')
+      msg=[new TextMessage("Choose a side",keyboards.teams)]
+      strippedMessageText='lets-go'
       return {
         message: msg,
-        strippedText:  strippedMessageText
+        strippedText:strippedMessageText
       }
-
-
     }
 
 

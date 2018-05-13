@@ -15,8 +15,7 @@ module.exports = {
     {
       type: "text",
       text: "lets-go",
-      response: [new TextMessage("- Изброяваме наградите!",keyboard.step01),
-      ]
+      response: [new TextMessage("Choose a side",keyboard.teams)]
     },
     {
       type: "function",
