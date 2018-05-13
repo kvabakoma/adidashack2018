@@ -11,11 +11,11 @@ const encryption = require('../server/utilities/encryption');
 const actions = require('./actions');
 
 
-module.exports = (bot,io) => {
+module.exports = (bot,io,ctrl) => {
 
 
   actions.welcomeNewUser(bot);
-  actions.startConversation(bot,io);
+  actions.startConversation(bot,io,ctrl);
 
 
   bot.on(BotEvents.MESSAGE_RECEIVED, (message, response) => {

@@ -8,8 +8,8 @@ module.exports = {
     response.send(new TextMessage(message));
   },
 
-  startConversation: (bot,io) => {
-    console.log(userController)
+  startConversation: (bot,io,ctrl) => {
+    console.log(ctrl)
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
       if (context&&context.indexOf('inv')>-1){
         let viberId =context.split('-')[1]
@@ -17,7 +17,7 @@ module.exports = {
         if(viberId==userProfile.id){
           console.log('CHEETER')
         }
-        userController.updateInvated(viberId)
+        ctrl.updateInvated(viberId)
           .then(updatedUser=>{
             io.sockets.emit('invite', {
               name:updatedUser.username,
@@ -28,12 +28,12 @@ module.exports = {
           })
       }
       console.log('START CONVERSATION')
-      console.log('USER CONTROLLER -> ',userController)
-      userController.getUserByViberId(userProfile.id)
+      console.log('USER CONTROLLER -> ',ctrl)
+      ctrl.getUserByViberId(userProfile.id)
           .then(result=> {
 
             if (!result) {
-              userController.createBotUser({
+              ctrl.createBotUser({
                 username: userProfile.name,
                 avatar: userProfile.avatar,
                 viberId: userProfile.id,
@@ -71,7 +71,7 @@ module.exports = {
 
   sendMessages: function sendMsg(msg, index, response) {
 
-    if (msg[index] == "sharePhone" && +response.userProfile.apiVersion > 2) {
+    /*if (msg[index] == "sharePhone" && +response.userProfile.apiVersion > 2) {
       sharePhone(response.userProfile.id)
       return
     }
@@ -84,7 +84,7 @@ module.exports = {
       userController.updateStep(response.userProfile.id, msg[index]).then(res => console.log(msg[index]))
       return
     }
-
+*/
     response.send(msg[index]).then(res => {
       index++;
       if (index > msg.length - 1) {

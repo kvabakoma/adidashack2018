@@ -37,7 +37,7 @@ app.all('*', (req, res) => {
 })
 
 webhookUrl ='https://myteamforcebot.herokuapp.com/viber-bot'
-
+botFunc(bot,io,userController)
 http.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl)))
 console.log(`Server listening on port ${settings.port}...`)
 io.on('connection', (socket) => {
@@ -58,7 +58,7 @@ console.log("Queue name: " + queue_name + " - Topic: " + key);
 });
 globalObjects.BOT_INSTANCE=bot
 globalObjects.SOCKETIO=io
-botFunc(bot,io)
+
 /*events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
   conn.createChannel(function(err, channel) {
     channel.assertQueue(queue_name, {exclusive: true}, function(err, q){
