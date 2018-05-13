@@ -105,7 +105,7 @@ module.exports = {
   },
   teamSelect(req, res){
     let team = req.param('team');
-    let viberId = req.param('viberId');
+    let viberId = encryption.decrypt(req.param('viberId'));
    /* setTimeout(function () {
 
       let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + 'teamforce'+'/'+viberId;
