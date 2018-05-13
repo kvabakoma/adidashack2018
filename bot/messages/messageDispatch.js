@@ -61,7 +61,11 @@ module.exports = {
       msg=[new TextMessage("Choose a side",keyboards.teams)]
       strippedMessageText='lets-go'
       return {
-        message: msg,
+        message:  {
+          type: "text",
+          text: "lets-go",
+          response: [new TextMessage("Choose a side",keyboard.teams)]
+        },
         strippedText:strippedMessageText
       }
     }
