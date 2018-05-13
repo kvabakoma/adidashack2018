@@ -12,7 +12,7 @@ return{
       "TextHAlign": "center",
       "TextVAlign": "middle",
       "ActionType": "open-url",
-      "ActionBody": "https://myteamforcebot.herokuapp.com/adidas/team/Spain/"+ viberId,
+      "ActionBody": "https://myteamforcebot.herokuapp.com/adidas/team/Spain/"+ URLEncoder.encode(viberId, "UTF-8"),
       "OpenURLType": "internal",
       "Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/300px-Flag_of_Spain.svg.png"
     },
@@ -24,7 +24,7 @@ return{
       "TextHAlign": "center",
       "TextVAlign": "middle",
       "ActionType": "open-url",
-      "ActionBody": "https://myteamforcebot.herokuapp.com/adidas/team/Netherlands/"+ viberId,
+      "ActionBody": "https://myteamforcebot.herokuapp.com/adidas/team/Netherlands/"+ URLEncoder.encode(viberId, "UTF-8"),
       "OpenURLType": "internal",
       "Image": "https://cdn.britannica.com/82/2982-004-ABEB3852.jpg"
     }
