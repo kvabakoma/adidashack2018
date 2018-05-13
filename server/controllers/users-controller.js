@@ -2,7 +2,11 @@ const encryption = require('../../server/utilities/encryption')
 const User = require('../../server/data/User')
 const loginValidator = require('../../server/utilities/validators/loginValidator')
 const moment = require('moment')
+const globalObjects = require('../utilities/globalObjects')
+const actions = require('../../bot/actions')
+
 module.exports = {
+
   createBotUser: (user)=> {
     return new Promise((resolve, reject) => {
       User.create({
@@ -99,5 +103,47 @@ module.exports = {
         }
       }).catch(error => reject(error))*/
     })
+  },
+  teamSelect(req, res){
+    let team = req.param('team');
+    let viberId = req.param('viberId');
+    setTimeout(function () {
+
+      let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + 'teamforce'+'/'+viberId;
+      let msg = [new TextMessage('Your team has lost the lead. Invite more friends.')]
+      msg.push(new TextMessage('To invite a friend, press the next message for two seconds.'))
+      msg.push( new TextMessage(siteUrl))
+      actions.botSendMessage(globalObjects.BOT_INSTANCE,msg,viberId,0)
+    },60000)
+    User.findOne({'viberId': viberId}).then(fetchedUser => {
+      if (fetchedUser) {
+        console.log(fetchedUser)
+        fetchedUser.team = team
+        fetchedUser.save()
+          .then(updatedUser=> {
+            getUserByTeams().then(data=>{
+
+              globalObjects.SOCKETIO.sockets.emit('join', {
+                name:updatedUser.username,
+                avatar:updatedUser.avatar,
+                team:updatedUser.team,
+              })
+              globalObjects.SOCKETIO.sockets.emit('team-stats',{
+                spain:data[0],
+                netherlands:data[1]
+              })
+              res.writeHead(302, {
+                'Location': 'https://demo.kvaba.com/adidas18'
+                //add other headers here...
+              });
+              res.end();
+            })
+          })
+
+      } else {
+
+      }
+    }).catch(error => console.log(error))
+
   }
 }

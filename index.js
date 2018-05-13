@@ -11,6 +11,8 @@ const key = 'fifa.worldcup.#.russia.#';
 const queue_name = 'Kvaba';
 const userController = require('./server/controllers/users-controller')
 const fs =require('fs')
+const globalObjects = require('./server/utilities/globalObjects')
+
 let io = require('socket.io')(http);
 require('./server/config/database')(settings)
 require('./server/config/express')(app)
@@ -54,6 +56,8 @@ console.log("Queue name: " + queue_name + " - Topic: " + key);
 
 
 });
+globalObjects.BOT_INSTANCE=bot
+globalObjects.SOCKETIO=io
 botFunc(bot,io)
 /*events.connect('amqp://ec2-18-188-68-193.us-east-2.compute.amazonaws.com', function(err, conn) {
   conn.createChannel(function(err, channel) {
