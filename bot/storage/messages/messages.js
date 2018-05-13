@@ -18,16 +18,17 @@ module.exports = {
       response: [new TextMessage("Let's go",keyboard.letsgo)]
     },
     {
-      type: "text",
+      type: "function",
       text: "choose",
-      response: [new TextMessage("Choose a side",keyboard.teams)]
+      response: chooseTeam,
+      keyboard: keyboard.teams
     },
-    {
+   /* {
       type: "function",
       text: "team",
       response: chooseTeam,
       keyboard: keyboard.teams
-    },
+    },*/
     {
       type: "function",
       text: "invite_friend",
