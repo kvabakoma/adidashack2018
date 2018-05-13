@@ -31,7 +31,7 @@ module.exports = {
 
     let encryptedPhoneNumber = req.param('viberId');
  //   let decryptetContex = crypto.decrypt(encryptedPhoneNumber);
-    console.log('REDIRECT',decryptetContex)
+    console.log('REDIRECT',encryptedPhoneNumber)
    // let invatedBy = decryptetContex.split('-')[1]
     let deeplink = 'viber://pa?chatURI=myteamforce&context=inv-' + encryptedPhoneNumber;
     let data = {
