@@ -52,14 +52,21 @@ module.exports = {
       console.log('TextMessage')
       strippedMessageText = text.replace(constants.MESSAGE_PREFIX, '');
       msg = storageMessage(strippedMessageText);
+      return {
+        message: msg,
+        strippedText:  strippedMessageText
+      }
     } else {
       console.log('USER INPUT')
+      return {
+        message: msg,
+        strippedText:  strippedMessageText
+      }
+
+
     }
 
-    return {
-      message: msg,
-      strippedText:  strippedMessageText
-    }
+
 
   }
 

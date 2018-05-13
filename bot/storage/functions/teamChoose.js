@@ -30,19 +30,20 @@ module.exports = (message, response, io) => {
   let team = message.split('-')[0]
   userController.updateTeam(viberId,team)
     .then(updatedUser=> {
-
         console.log(updatedUser)
+      userController.getUserByTeams().then(data=>{
+
         io.sockets.emit('join', {
           name:updatedUser.username,
           avatar:updatedUser.avatar,
           team:updatedUser.team,
       })
-      userController.getUserByTeams().then(data=>{
         io.sockets.emit('team-stats',{
           spain:data[0],
           netherlands:data[1]
         })
       })
+
 
     })
   actions.sendMessages([new TextMessage('Invite your friends',keyboards.invite)],0,response)
