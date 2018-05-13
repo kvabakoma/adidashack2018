@@ -7,13 +7,13 @@ module.exports = {
     {
     "Columns": 3,
     "Rows": 2,
-    "Text": "Bulgaria",
+    "Text": "NETHERLANDS",
     "TextSize": "medium",
     "TextHAlign": "center",
     "TextVAlign": "middle",
     "ActionType": "reply",
-    "ActionBody": constants.MESSAGE_PREFIX +"Bulgaria-team",
-    "Image": "https://cdn.britannica.com/04/6204-004-95944DD6.jpg"
+    "ActionBody": constants.MESSAGE_PREFIX +"Netherlands-team",
+    "Image": "https://en.wikipedia.org/wiki/Flag_of_the_Netherlands#/media/File:Flag_of_the_Netherlands.svg"
   },
     {
     "Columns": 3,

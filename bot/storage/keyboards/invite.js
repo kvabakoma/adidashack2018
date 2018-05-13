@@ -8,7 +8,7 @@ module.exports = {
       "ActionBody": constants.MESSAGE_PREFIX+'invite_friend',
       "ActionType": "reply",
       "BgColor": constants.BUTTONS_BACKGROUND_COLOR,
-      "Text": `<font color=\"#FB4329\">Покани приятел</font>`,
+      "Text": `<font color=\"#FFFFFF\">Покани приятел</font>`,
       "TextHAlign": "center",
       "TextVAlign": "middle",
       "Silent":"true"

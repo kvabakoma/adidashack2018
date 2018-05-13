@@ -71,5 +71,33 @@ module.exports = {
         }
       }).catch(error => reject(error))
     })
+  },
+  getUserByTeams(){
+    return new Promise((resolve, reject) => {
+      let allPromises = [User.count({'team': 'Spain'}),User.count({'team': 'Netherlands'})]
+      Promise.all(allPromises)
+        .then(data=>{
+          console.log(data)
+          resolve(data)
+        })
+        .catch(error => reject(error))
+      /*User.count({'team': 'spain'}).then(fetchedUser => {
+        if (fetchedUser) {
+          console.log(fetchedUser)
+          if (fetchedUser.invitations) {
+            fetchedUser.invitations++
+          } else {
+            fetchedUser.invitations = 1
+          }
+          fetchedUser.save()
+            .then(updatedUser=> {
+              resolve(updatedUser)
+            })
+
+        } else {
+          resolve(false)
+        }
+      }).catch(error => reject(error))*/
+    })
   }
 }

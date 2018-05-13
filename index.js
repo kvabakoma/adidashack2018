@@ -9,6 +9,7 @@ const exchange = 'amq.topic';
 const fileType = require('file-type');
 const key = 'fifa.worldcup.#.russia.#';
 const queue_name = 'Kvaba';
+const userController = require('./server/controllers/users-controller')
 const fs =require('fs')
 let io = require('socket.io')(http);
 require('./server/config/database')(settings)
@@ -39,7 +40,11 @@ http.listen(settings.port,bot.setWebhook(webhookUrl).then(console.log(webhookUrl
 console.log(`Server listening on port ${settings.port}...`)
 io.on('connection', (socket) => {
   console.log("Connected to Socket!!" + socket.id);
-  socket.emit('join',{hui:'oioiuo'})
+  userController.getUserByTeams().then(data=>{
+    socket.emit('team-stats',data)
+  })
+
+
 //QUEUE_NAME=events-queue-team TOPIC=fifa.worldcup.#.Russia.#
 console.log("Queue name: " + queue_name + " - Topic: " + key);
 
