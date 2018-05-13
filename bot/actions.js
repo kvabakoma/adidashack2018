@@ -28,7 +28,8 @@ module.exports = {
           })
       }
       console.log('START CONVERSATION')
-        userController.getUserByViberId(userProfile.id)
+      console.log('USER CONTROLLER -> ',userController)
+      userController.getUserByViberId(userProfile.id)
           .then(result=> {
 
             if (!result) {
