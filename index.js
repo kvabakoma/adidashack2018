@@ -41,7 +41,9 @@ console.log(`Server listening on port ${settings.port}...`)
 io.on('connection', (socket) => {
   console.log("Connected to Socket!!" + socket.id);
   userController.getUserByTeams().then(data=>{
-
+    socket.emit(
+      'golqm HUI'
+    )
     socket.emit({
       spain:data[0],
       netherlands:data[1]
