@@ -58,13 +58,13 @@ module.exports = {
       }
     } else {
       console.log('USER INPUT')
-      msg=[new TextMessage("Choose a side",keyboards.teams)]
+
       strippedMessageText='lets-go'
       return {
         message:  {
           type: "text",
           text: "lets-go",
-          response: [new TextMessage("Choose a side",keyboards.teams)]
+          response: [new TextMessage("Let's go",keyboards.letsgo)]
         },
         strippedText:strippedMessageText
       }

@@ -15,6 +15,11 @@ module.exports = {
     {
       type: "text",
       text: "lets-go",
+      response: [new TextMessage("Let's go",keyboard.letsgo)]
+    },
+    {
+      type: "text",
+      text: "choose",
       response: [new TextMessage("Choose a side",keyboard.teams)]
     },
     {
