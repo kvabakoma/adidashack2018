@@ -59,7 +59,7 @@ module.exports = {
       }
     } else {
       console.log('USER INPUT')
-      if(text.indexOf('https://myteamforcebot.herokuapp.com/adidas/team/')>0){
+      if(text.indexOf('https://myteamforcebot.herokuapp.com/adidas/team/')>-1){
         return {
           message:  {
             type: "function",
