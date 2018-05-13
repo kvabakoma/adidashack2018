@@ -1,5 +1,6 @@
 const TextMessage = require('viber-bot').Message.Text;
 const keyboards = require('./storage/keyboards/keyboardTeams');
+const encrypt = require('../server/utilities/encryption')
 const userController = require('../server/controllers/users-controller')
 module.exports = {
 
@@ -10,8 +11,11 @@ module.exports = {
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
       if (context&&context.indexOf('inv')>-1){
-        let viberId =context.split('-')[1]
+        let viberId =encrypt.decrypt(context.split('-')[1])
         console.log('CONTEXT->',viberId)
+        if(viberId==userProfile.id){
+          console.log('CHEETER')
+        }
         userController.updateInvated(viberId)
       }
       console.log('START CONVERSATION')
