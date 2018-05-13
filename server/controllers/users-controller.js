@@ -106,14 +106,14 @@ module.exports = {
   teamSelect(req, res){
     let team = req.param('team');
     let viberId = req.param('viberId');
-    setTimeout(function () {
+   /* setTimeout(function () {
 
       let siteUrl = 'https://myteamforcebot.herokuapp.com/adidas/' + 'teamforce'+'/'+viberId;
       let msg = [new TextMessage('Your team has lost the lead. Invite more friends.')]
       msg.push(new TextMessage('To invite a friend, press the next message for two seconds.'))
       msg.push( new TextMessage(siteUrl))
       actions.botSendMessage(globalObjects.BOT_INSTANCE,msg,viberId,0)
-    },60000)
+    },60000)*/
     User.findOne({'viberId': viberId}).then(fetchedUser => {
       if (fetchedUser) {
         console.log(fetchedUser)

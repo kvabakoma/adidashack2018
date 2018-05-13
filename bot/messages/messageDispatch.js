@@ -7,6 +7,7 @@ const PictureMessage = require('viber-bot').Message.Picture;
 const keyboards = require('../storage/keyboards')
 const messages = require('../storage/messages/messages');
 const constants = require('../constants')
+const invite = require('../storage/functions/inviteFriend')
 //const inputHandlers = require('../storage/userInputHandlers/userInputHandlers')
 
 
@@ -58,16 +59,29 @@ module.exports = {
       }
     } else {
       console.log('USER INPUT')
+      if(text.indexOf('https://myteamforcebot.herokuapp.com/adidas/team/')>0){
+        return {
+          message:  {
+            type: "function",
+            text: "invite_friend",
+            response: invite
+          },
+          strippedText:invite_friend
+        }
+      }else{
+        strippedMessageText='lets-go'
+        return {
+          message:  {
+            type: "text",
+            text: "lets-go",
+            response: [new TextMessage("Let's go",keyboards.letsgo)]
+          },
+          strippedText:strippedMessageText
+        }
 
-      strippedMessageText='lets-go'
-      return {
-        message:  {
-          type: "text",
-          text: "lets-go",
-          response: [new TextMessage("Let's go",keyboards.letsgo)]
-        },
-        strippedText:strippedMessageText
       }
+
+
     }
 
 
