@@ -11,7 +11,7 @@ module.exports = {
   startConversation: (bot) => {
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
       if (context&&context.indexOf('inv')>-1){
-        let viberId =encrypt.decrypt(context.split('-')[1])
+        let viberId =context.split('-')[1]
         console.log('CONTEXT->',viberId)
         if(viberId==userProfile.id){
           console.log('CHEETER')
