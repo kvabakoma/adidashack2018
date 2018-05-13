@@ -6,7 +6,6 @@ const globalObjects = require('../utilities/globalObjects')
 const actions = require('../../bot/actions')
 
 module.exports = {
-
   createBotUser: (user)=> {
     return new Promise((resolve, reject) => {
       User.create({

@@ -9,6 +9,7 @@ module.exports = {
   },
 
   startConversation: (bot,io) => {
+    console.log(userController)
     bot.onConversationStarted((userProfile, isSubscribed, context, onFinish) => {
       if (context&&context.indexOf('inv')>-1){
         let viberId =context.split('-')[1]
