@@ -1,5 +1,5 @@
 const TextMessage = require('viber-bot').Message.Text;
-const keyboards = require('./storage/keyboards/keyboardTeams');
+const keyboards = require('./storage/keyboards');
 const encrypt = require('../server/utilities/encryption')
 const userController = require('../server/controllers/users-controller')
 module.exports = {
@@ -40,7 +40,7 @@ module.exports = {
             }
             let msgs =[]
             msgs.push(new TextMessage(`Welcome to Adidas My Team Force!`))
-            msgs.push(new TextMessage(`Before we begin - would you share you shoe size?`,keyboards))
+            msgs.push(new TextMessage(`Before we begin - would you share you shoe size?`,keyboards.skip))
             console.log(userProfile.id)
            botSendMsg(bot,msgs,userProfile.id,0)
            //onFinish(new TextMessage(`${userProfile.name} Pick team that you support`,keyboards.teams));
