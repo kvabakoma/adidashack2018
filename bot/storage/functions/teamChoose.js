@@ -48,7 +48,12 @@ module.exports = (message, response, io) => {
           netherlands:data[1]
         })
       })
-      opn('https://demo.kvaba.com/adidas18')
+      opn('https://demo.kvaba.com/adidas18').then(res=>{
+        console.log(res)
+      })
+        .catch(err=>{
+          console.log(err)
+        })
 
     })
 
