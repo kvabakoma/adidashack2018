@@ -29,11 +29,11 @@ module.exports = {
 
   redirect(req, res){
 
-    let encryptedPhoneNumber = req.param('tel');
+    let encryptedPhoneNumber = req.param('viberId');
     let decryptetContex = crypto.decrypt(encryptedPhoneNumber);
-    console.log(decryptetContex)
+    console.log('REDIRECT',decryptetContex)
     let invatedBy = decryptetContex.split('-')[1]
-    let deeplink = 'viber://pa?chatURI=myteamforce&context=inv-' + encryptedPhoneNumber;
+    let deeplink = 'viber://pa?chatURI=myteamforce&context=inv-' + decryptetContex;
     let data = {
       "deeplink": deeplink,
       "invitedBy": invatedBy
