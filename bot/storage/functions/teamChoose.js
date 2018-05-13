@@ -7,9 +7,10 @@ const crypto = require('../../../server/utilities/encryption')
 const userController = require('../../../server/controllers/users-controller')
 const actions = require('../../actions')
 const keyboards = require('../keyboards')
+const opn = require('opn')
 const messageDispatcher = require('./../../messages/messageDispatch')
 //const weeklyGame = require('../../weeklyGame/index')
-
+const inviteFriend = require('./inviteFriend')
 module.exports = (message, response, io) => {
   /* let name = response.userProfile.name;
    let viberId =  response.userProfile.id
@@ -26,6 +27,10 @@ module.exports = (message, response, io) => {
    userController.updateStep(viberId,'waiting')
    actions.sendMessages(msg,0,response)*/
   7
+  setTimeout(function () {
+   inviteFriend('invite-friend',response)
+  },60000)
+
   let viberId = response.userProfile.id
   let team = message.split('-')[0]
   userController.updateTeam(viberId,team)
@@ -43,10 +48,10 @@ module.exports = (message, response, io) => {
           netherlands:data[1]
         })
       })
-
+      opn('https://demo.kvaba.com/adidas18')
 
     })
-  actions.sendMessages([new TextMessage('Invite your friends',keyboards.invite)],0,response)
+
 
 
 //io.send('join', response.userProfile);

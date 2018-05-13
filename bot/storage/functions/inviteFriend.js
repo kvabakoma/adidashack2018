@@ -24,8 +24,8 @@ module.exports = ( message, response) => {
    msg.push(new TextMessage('Виж офертата на Пулс - може да спечелиш: '+siteUrl))
 */
  //userController.updateStep(viberId,'waiting')
-  let msg = [new UrlMessage('https://demo.kvaba.com/adidas18')]
-  msg.push(new TextMessage('За да поканиш приятели, задръж две секунди  върху долното съобщение и натсни "Forward"'))
+  let msg = [new TextMessage('Your team has lost the lead. Invite more friends.')]
+  msg.push(new TextMessage('To invite a friend, press the next message for two seconds.'))
    msg.push( new TextMessage(siteUrl))
   actions.sendMessages(msg,0,response)
 
